@@ -2,48 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-1: #c10c5b;
+.h1-primary {
+  @apply text-6xl font-bold font-nunito;
 }
 
-* {
-  @apply text-stone-300;
+.neo {
+  @apply bg-main  text-text  rounded-base font-base ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-border dark:border-darkBorder shadow-light dark:shadow-dark hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none;
 }
 
-@layer components {
-  body {
-    @apply w-full  bg-r1 overflow-x-hidden text-white -z-50;
-  }
-  *::selection {
-    @apply bg-red-700;
-  }
+.neo-outline {
+  @apply border-2 rounded-base border-border dark:border-darkBorder shadow-light dark:shadow-dark ;
+}
 
-  .circle {
-    @apply w-8 aspect-square rounded-full bg-yellow-500 shadow-yellow-700 shadow-inner;
-  }
-  .form-input {
-    @apply w-full px-4 py-2 border  rounded-md shadow-md mt-2 text-[0.9rem] bg-transparent;
-  }
-
-  .form-textarea {
-    @apply w-full border-slate-500 rounded-md pl-8 py-3 outline-none mt-2 text-[0.9rem] bg-transparent border;
-  }
-
-  .btn-primary {
-    @apply md:text-sm px-8 py-[0.8rem] rounded-full font-bold bg-secondary-800 hover:bg-secondary-700 transition duration-500 cursor-pointer hover:-rotate-3 hover:hue-rotate-15 hover:scale-105 active:bg-secondary-600;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary-800 px-20 md:px-8 py-3 rounded-md shadow-md hover:bg-secondary-700 transition duration-500 cursor-pointer;
-  }
-
-  html {
-    @apply text-[15px] md:text-[16px] scroll-smooth;
-  }
-
-  .h1-primary {
-    @apply text-5xl md:text-8xl mt-10  selection:bg-red-700;
-  }
+.neo-2 {
+  @apply border-2 rounded-base bg-main border-border dark:border-darkBorder shadow-light dark:shadow-dark ;
 }
 
 .link-liner::after {
@@ -153,5 +125,11 @@
 @keyframes blinkCursor {
   to {
     opacity: 0;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
   }
 }

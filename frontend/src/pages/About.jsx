@@ -1,6 +1,5 @@
 import { motion} from "framer-motion";
-import toast from "react-hot-toast";
-
+import { Button } from "../components/ui/Button";
 function About() {
   return (
     <section id="about" className="w-full mt-32 md:mt-64 relative ">
@@ -23,22 +22,22 @@ function About() {
       >
         <motion.img 
           id="about-image"
-          className="w-[70%] mx-auto sm:w-[300px] md:w-[360px] rounded-lg  md:block h-auto scroll-trigger-left"
+          className="w-[70%] neo-outline mx-auto sm:w-[300px] md:w-[360px] rounded-lg  md:block h-auto scroll-trigger-left"
           src={"profile.webp"}
           alt=""
         />
         <motion.div
           id="about-para"
-          className="lg:ml-20 md:ml-10 mt-10 text-gray-300 scroll-trigger-right max-sm:text-center"
+          className="lg:ml-20 md:ml-10 mt-10 text-gray-800 scroll-trigger-right max-sm:text-center"
         >
           <p className="text-lg ">
             <span className="text-xl md:text-3xl text-pink-700 font-bold  ">Hello there!</span> I'm Anoop Singh, a passionate and aspiring web developer currently pursuing
             my B.Tech in Computer Science and Engineering at Bundelkhand Institute of Engineering
             and Technology in Jhansi , Uttar Pradesh.
           </p>
-          <button className="btn-primary mt-10  ">
-            <a href="#contact">Contact</a>{" "}
-          </button>
+          <Button className="mt-10  ">
+            <a href="#contact">Contact Me</a>{" "}
+          </Button>
         <img src="books.png" className="absolute max-sm:hidden bottom-0 opacity-10 -z-10" alt="" />
 
         </motion.div>

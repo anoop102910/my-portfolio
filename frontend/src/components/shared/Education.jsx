@@ -13,7 +13,7 @@ function Education() {
     animate: { opacity: 1, x: 0 },
   };
   return (
-    <div ref={ref} id="education" className="mt-32 ">
+    <div ref={ref} id="education" className="mt-32 bg-white border-2 border-black p-4 rounded-lg shadow-lg">
       <h1 className="h1-primary scroll-top ">Education</h1>
       <div className="mt-20  ">
         <motion.div

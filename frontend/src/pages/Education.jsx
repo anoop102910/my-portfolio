@@ -29,12 +29,12 @@ function Education() {
             viewport={{once:true}}
             initial="hidden"
             key={index}
-            className="mt-10 flex-1 border p-8 rounded-md hover:bg-violet-900 bg-glass hover:ring-2 hover:ring-white "
+            className="mt-10 flex-1 border p-8 neo"
           >
             <h2 className="text-4xl font-bold font-roboto text-green-600">{item.year}</h2>
             <h3 className="text-2xl mt-6">{item.degree}</h3>
-            <h4 className="mt-4 text-gray-400">{item.institution}</h4>
-            <h5 className="mt-6 text-sm text-gray-400">{item.location}</h5>
+            <h4 className="mt-4 text-gray-700">{item.institution}</h4>
+            <h5 className="mt-6 text-sm text-gray-700">{item.location}</h5>
           </motion.div>
         ))}
       </motion.div>

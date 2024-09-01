@@ -15,7 +15,7 @@ function Skills() {
         {" "}
         My skills
       </motion.div>
-      <motion.div  id="card-container" className="mt-20 grid grid-cols-3 gap-20">
+      <motion.div  id="card-container" className="mt-20 grid grid-cols-3 gap-6 md:gap-10 lg:gap-20">
         <Card src="react.svg" label={"React"} />
         <Card src="node.svg" label={"Node Js"} />
         <Card src="mongo.svg" label={"Mongo Db"} />
@@ -34,10 +34,10 @@ function Card({ src, label,s, size = 100 }) {
       initial={{scale:0}}
       whileInView={{scale:1}}
       viewport={{once:true}}
-      className="skills-card hover:ring-green-400 hover:scale-[1.01] hover:ring-4 mx-auto md:p-10  rounded-md md:bg-blue-900  md:hover:bg-blue-800 md:w-[250px] flex flex-col items-center justify-between  shadow-md md:active:bg-blue-600 duration-500 p-0 w-max bg-transparent"
+      className="skills-card neo hover:scale-[1.01] mx-auto p-4 md:p-10  rounded-md  md:w-[250px] flex flex-col items-center justify-between w-max "
     >
       <img className="max-[600px]:w-12 " width={size} height="auto" src={src} alt="node js " />
-      <h2 className="md:text-xl font-bold  mt-4 text-green-300 text-sm">{label}</h2>
+      <h2 className="md:text-xl font-bold  mt-4 text-gray-700 text-sm">{label}</h2>
     </motion.div>
   );
 }

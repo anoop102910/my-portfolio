@@ -6,7 +6,7 @@ function Home() {
   return (
     <section
       id="home"
-      className="flex flex-1 flex-col sm:flex-row  md:mt-10 justify-between relative"
+      className="flex flex-1 flex-col sm:flex-row  md:mt-10 justify-between relative "
     >
       <motion.div>
         <motion.h1
@@ -21,7 +21,7 @@ function Home() {
           animate={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -1000 }}
           transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
-          className="h1-primary animate-bottom"
+          className="h1-primary animate-bottom mt-6 font-nunito"
         >
           Anoop Singh
         </motion.h2>
@@ -32,12 +32,12 @@ function Home() {
           className="mt-16 flex items-center z-20 gap-x-4 animate-bottom"
         >
           <hr className="w-[0.1rem] h-[100px] border bg3 border-red-500" />
-          <h3 className="w-[200px] text-gray-300 font-salsa">
+          <h3 className="w-[200px] text-gray-700 font-poppins">
             "I am passionate about web development and dedicated to honing my skills in this field."
           </h3>
         </motion.div>
       </motion.div>
-      <motion.div className="md:absolute  top-1 -right-32  -z-10  ">
+      <motion.div className="md:absolute  top-1 -right-32  z-10  ">
         <motion.div
           variants={imageVariant}
           initial="hidden"

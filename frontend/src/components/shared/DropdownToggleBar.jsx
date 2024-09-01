@@ -16,8 +16,8 @@ const DropdownToggleBar = () => {
   };
 
   return (
-    <div className="relative ">
-      <motion.div whileTap={{ scale: 0.9 }} className="cursor-pointer" onClick={toggleMenu}>
+    <div className="relative">
+      <motion.div whileTap={{ scale: 0.9 }} className="cursor-pointer border-2 border-black p-2 rounded-lg bg-white" onClick={toggleMenu}>
         <IconContext.Provider value={{ size: "1.5em" }}>
           {isMenuOpen ? <FaTimes /> : <AiOutlineMenu />}
         </IconContext.Provider>
@@ -30,7 +30,7 @@ const DropdownToggleBar = () => {
             exit={{ opacity: 0, scale: 0.95, y: -10, clipPath: "circle(0% at 50% 0%)" }}
             transition={{ duration: 0.3 }}
             onBlur={toggleMenu}
-            className="absolute z-[1010] top-0 right-0 mt-10 w-52 bg-glass px-4  rounded-lg shadow-md "
+            className="absolute z-[1010] top-0 right-0 mt-10 w-52 bg-white border-2 border-black rounded-lg shadow-md"
           >
             <ul className="z-[1009]">
               <li>

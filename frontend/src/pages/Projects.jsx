@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
-import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
-import Chip from "../components/ui/chip";
+import { motion, } from "framer-motion";
 import { cardDetails } from "../utils/data";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/shared/ProjectCard";
 
 function Projects() {
   return (
@@ -11,7 +8,7 @@ function Projects() {
       <img
         src="laptop.png"
         width={400}
-        className="absolute max-sm:hidden opacity-5 -left-20 -top-20"
+        className="absolute max-sm:hidden opacity-30 -left-20 -top-32"
         alt=""
       />
       <motion.h1
