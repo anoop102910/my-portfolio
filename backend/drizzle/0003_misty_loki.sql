@@ -1,0 +1,1 @@
+ALTER TABLE "user_details" ADD COLUMN "created_at" timestamp DEFAULT now();

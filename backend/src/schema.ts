@@ -23,23 +23,15 @@ export const userDetails = pg.pgTable("user_details", {
   screenHeight: pg.integer("screen_height"),
   referrerUrl: pg.text("referrer_url"),
   userAgent: pg.text("user_agent"),
+  createdAt: pg.timestamp("created_at").defaultNow(),
 });
 
 export const userSession = pg.pgTable("user_sessions", {
+  id: pg.serial("id").primaryKey(),
   userId: pg
     .integer("user_id")
-    .references(() => users.id, { onDelete: "cascade" ,onUpdate: "no action"})
-    .primaryKey(),
+    .references(() => users.id, { onDelete: "cascade" ,onUpdate: "no action"}),
   startedAt: pg.timestamp("started_at").notNull(),
   endedAt: pg.timestamp("ended_at"),
 });
 
-
-// export const projectViews = pg.pgTable("project_views", {
-//   projectId: pg.integer("project_id").primaryKey(),
-//   userId: pg.integer("user_id").references(() => users.id, {
-//     onDelete: "set null",
-//     onUpdate: "no action",
-//   }),
-//   timestamp: pg.timestamp("timestamp").notNull().defaultNow(),
-// });

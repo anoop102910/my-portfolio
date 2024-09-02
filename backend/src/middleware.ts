@@ -5,6 +5,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 
 interface UserPayload {
   id: number;
+  sessionId: number; 
 }
 
 export const authenticateJWT = (req: Request, res: Response, next: NextFunction) => {
@@ -16,7 +17,7 @@ export const authenticateJWT = (req: Request, res: Response, next: NextFunction)
         return res.status(403).send({ error: 'Invalid token' });
       }
 
-      req.user = user as UserPayload;
+      req.user = user as UserPayload; // Ensure user has sessionId
 
       next();
     });

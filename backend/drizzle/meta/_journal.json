@@ -22,6 +22,20 @@
       "when": 1724593183093,
       "tag": "0002_certain_silvermane",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1725298764236,
+      "tag": "0003_misty_loki",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1725299186192,
+      "tag": "0004_magical_skin",
+      "breakpoints": true
     }
   ]
 }

@@ -21,19 +21,37 @@ import '@fontsource/poppins'
 
 function App() {
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const referrer = searchParams.get("refer");
+
     const login = async () => {
       try {
         const res = await api.post("/login", {
+          referrer: referrer,
           screenWidth: window.screen.width,
           screenHeight: window.screen.height,
+          createdAt: new Date(),
         });
         const token = res.data.data;
-        localStorage.setItem("token", token);
+        if(token){
+          localStorage.setItem("token", token);
+        }
       } catch (error) {
         console.error("Login failed", error);
       }
     };
+    const endSession = (e) => {
+      e.preventDefault();
+      navigator.sendBeacon("/end-session");
+    };
+    
+    window.addEventListener("unload", endSession);
+
     login();
+
+    return () => {
+      window.removeEventListener("unload", endSession);
+    };
   }, []);
 
   return (
