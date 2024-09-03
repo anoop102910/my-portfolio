@@ -1,7 +1,7 @@
 import React from "react";
 import Lottie from "lottie-react";
-import animationData from "../assets/message.json"
-import ContactUs from "../components/shared/ContactForm";
+import animationData from "../../assets/message.json"
+import ContactUs from "../../components/shared/ContactForm";
 
 
 function Contact() {

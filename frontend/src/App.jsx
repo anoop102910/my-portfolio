@@ -1,23 +1,15 @@
 import React, { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import api from "./utils/api";
-import Navbar from "./components/shared/Navbar";
-import Footer from "./components/shared/Footer";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
-import Skills from "./pages/Skills";
-import Education from "./pages/Education";
-import { motion } from "framer-motion";
-import Parallax from "./pages/Parallex";
-import Experience from "./pages/Experience";
 import "@fontsource/suse";
-import '@fontsource/nunito'
-import '@fontsource/spirax'
-import '@fontsource/roboto'
-import '@fontsource/playfair-display'
-import '@fontsource/poppins'
+import "@fontsource/nunito";
+import "@fontsource/spirax";
+import "@fontsource/roboto";
+import "@fontsource/playfair-display";
+import "@fontsource/poppins";
+import Main from "./pages/home/Main";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   useEffect(() => {
@@ -33,18 +25,18 @@ function App() {
           createdAt: new Date(),
         });
         const token = res.data.data;
-        if(token){
+        if (token) {
           localStorage.setItem("token", token);
         }
       } catch (error) {
         console.error("Login failed", error);
       }
     };
-    const endSession = (e) => {
+    const endSession = e => {
       e.preventDefault();
       navigator.sendBeacon("/end-session");
     };
-    
+
     window.addEventListener("unload", endSession);
 
     login();
@@ -55,30 +47,15 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-        className="max-sm:p-4 overflow-y-hidden bg-bg "
-      >
-        <div className="sm:px-10 lg:px-[10%]">
-          <Navbar />
-          <Home />
-          <About />
-          <Experience />
-        </div>
-        <Parallax />
-        <div className="sm:px-10 lg:px-[10%]">
-          <Skills />
-          <Projects />
-          <Education />
-          <Contact />
-        </div>
-        <Footer />
-      </motion.div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
       <Toaster />
-    </div>
+    </>
   );
 }
 

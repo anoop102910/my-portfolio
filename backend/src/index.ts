@@ -13,7 +13,7 @@ dotenv.config();
 declare global {
   namespace Express {
     interface Request {
-      user?: { id: number, sessionId: number };
+      user?: { id: number; sessionId: number };
     }
   }
 }
@@ -49,6 +49,7 @@ app.post("/login", async (req: Request, res: Response) => {
     if (prevToken) {
       const decodedToken = jwt.verify(prevToken, process.env.JWT_SECRET_KEY!);
       const userId = (decodedToken as { id: number }).id;
+      if(userId===65) return;
       const [userSession] = await db
         .insert(sc.userSession)
         .values({
@@ -105,6 +106,68 @@ app.post("/end-session", authenticateJWT, async (req: Request, res: Response) =>
     } else {
       res.status(401).json({ error: "User not authenticated" });
     }
+  } catch (error: any) {
+    console.error("Error occurred:", error);
+    res.status(500).json({ error: "An error occurred", details: error.message });
+  }
+});
+
+app.get("/get-user-sessions", async (req: Request, res: Response) => {
+  try {
+    const sessions = await db
+      .select({
+        id: sc.userSession.id,
+        userId: sc.userSession.userId,
+        startedAt: sc.userSession.startedAt,
+        totalSessions: q.count(sc.userSession.userId),
+      })
+      .from(sc.userSession)
+      .orderBy(q.desc(sc.userSession.id))
+      .groupBy(sc.userSession.userId, sc.userSession.id);
+    res.json({ data: sessions });
+  } catch (error: any) {
+    console.error("Error occurred:", error);
+    res.status(500).json({ error: "An error occurred", details: error.message });
+  }
+});
+
+app.get("/get-user-details", async (req: Request, res: Response) => {
+  try {
+    const userDetails = await db.select().from(sc.userDetails).orderBy(q.desc(sc.userDetails.userId));
+    res.json({ data: userDetails });
+  } catch (error: any) {
+    console.error("Error occurred:", error);
+    res.status(500).json({ error: "An error occurred", details: error.message });
+  }
+});
+
+app.get("/get-user-stats", async (req: Request, res: Response) => {
+  try {
+    const userStats = await db
+      .select({
+        dailyUsers: q.countDistinct(sc.userDetails.userId),
+        weeklyUsers: q.countDistinct(sc.userDetails.userId),
+        monthlyUsers: q.countDistinct(sc.userDetails.userId),
+
+        referredUsers: q.countDistinct(sc.userDetails.referrerUrl),
+        linkedinReferred: q.countDistinct(q.eq(sc.userDetails.referrerUrl, "linkedin")),
+        resumeReferrals: q.countDistinct(q.eq(sc.userDetails.referrerUrl, "resume")),
+        totalUsers: q.countDistinct(sc.userDetails.userId),
+      })
+      .from(sc.userDetails)
+      .groupBy(sc.userDetails.userId);
+
+    const userSessions = await db
+      .select({
+        dailyTimeSpent: q.sum(q.sql`EXTRACT(EPOCH FROM (ended_at - started_at))`),
+        weeklyTimeSpent: q.sum(q.sql`EXTRACT(EPOCH FROM (ended_at - started_at))`),
+        monthlyTimeSpent: q.sum(q.sql`EXTRACT(EPOCH FROM (ended_at - started_at))`),
+        totalTimeSpent: q.sum(q.sql`EXTRACT(EPOCH FROM (ended_at - started_at))`),
+      })
+      .from(sc.userSession)
+      .groupBy(sc.userSession.userId);
+
+    res.json({ data: { ...userStats, ...userSessions } });
   } catch (error: any) {
     console.error("Error occurred:", error);
     res.status(500).json({ error: "An error occurred", details: error.message });

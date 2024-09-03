@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { imageVariant, slideVariants } from "../utils/animation_variants";
+import { imageVariant, slideVariants } from "../../utils/animation_variants";
 import Lottie from "lottie-react";
-import animationData from "../assets/hero.json";
+import animationData from "../../assets/hero.json";
 function Home() {
   return (
     <section

@@ -1,5 +1,5 @@
 import { motion} from "framer-motion";
-import { Button } from "../components/ui/Button";
+import { Button } from "../../components/ui/Button";
 function About() {
   return (
     <section id="about" className="w-full mt-32 md:mt-64 relative ">

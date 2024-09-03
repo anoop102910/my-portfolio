@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { educationData } from "../utils/data";
+import { educationData } from "../../utils/data";
 
 function Education() {
 

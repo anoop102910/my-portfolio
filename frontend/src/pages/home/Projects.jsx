@@ -1,6 +1,6 @@
 import { motion, } from "framer-motion";
-import { cardDetails } from "../utils/data";
-import ProjectCard from "../components/shared/ProjectCard";
+import { cardDetails } from "../../utils/data";
+import ProjectCard from "../../components/shared/ProjectCard";
 
 function Projects() {
   return (
