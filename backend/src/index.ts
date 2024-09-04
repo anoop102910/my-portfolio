@@ -49,7 +49,7 @@ app.post("/login", async (req: Request, res: Response) => {
     if (prevToken) {
       const decodedToken = jwt.verify(prevToken, process.env.JWT_SECRET_KEY!);
       const userId = (decodedToken as { id: number }).id;
-      if(userId===65) return;
+      if(userId===65 || userId===67) return;
       const [userSession] = await db
         .insert(sc.userSession)
         .values({

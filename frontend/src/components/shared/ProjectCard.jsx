@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "../ui/hover-card";
 export default function ProjectCard({ card, index }) {
   let { name, about, imageLink, gitLink, reverse, websiteLink, techStack, videoLink } = card;
 
@@ -18,8 +19,9 @@ export default function ProjectCard({ card, index }) {
 
   return (
     <motion.div
-      className={`mt-10 neo-outline shadow-none overflow-hidden md:mb-52 mx-auto flex flex-col gap-y-10 md:flex-row items-center gap-x-16 border-2 border-black p-4`}
+      className={`mt-10 neo-outline relative shadow-none overflow-hidden md:mb-52 mx-auto flex flex-col gap-y-10 md:flex-row items-center gap-x-16 border-2 border-black p-4`}
     >
+  
       <motion.div
         ref={ref}
         style={{ scale: s }}

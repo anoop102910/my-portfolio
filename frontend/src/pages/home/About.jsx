@@ -22,7 +22,7 @@ function About() {
       >
         <motion.img 
           id="about-image"
-          className="w-[70%] neo-outline mx-auto sm:w-[300px] md:w-[360px] rounded-lg  md:block h-auto scroll-trigger-left"
+          className="w-[70%] neo-outline mx-auto sm:w-[300px] md:w-[300px]  rounded-lg  md:block h-auto scroll-trigger-left"
           src={"profile.webp"}
           alt=""
         />
@@ -31,7 +31,7 @@ function About() {
           className="lg:ml-20 md:ml-10 mt-10 text-gray-800 scroll-trigger-right max-sm:text-center"
         >
           <p className="text-lg ">
-            <span className="text-xl md:text-3xl text-pink-700 font-bold  ">Hello there!</span> I'm Anoop Singh, a passionate and aspiring web developer currently pursuing
+            <span className="text-xl md:text-3xl text-gray-700 font-bold  ">Hello there!</span> I'm Anoop Singh, a passionate and aspiring web developer currently pursuing
             my B.Tech in Computer Science and Engineering at Bundelkhand Institute of Engineering
             and Technology in Jhansi , Uttar Pradesh.
           </p>

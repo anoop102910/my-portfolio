@@ -35,7 +35,7 @@ const ContactUs = () => {
       <form ref={form} className="mx-auto w-full lg:w-[500px]" onSubmit={sendEmail}>
         <div className="grid md:grid-cols-2 gap-10">
           <div>
-            <Label>Full Name*</Label>
+            <Label>Name*</Label>
             <Input
               type="text"
               name="name"

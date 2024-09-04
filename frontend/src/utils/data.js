@@ -6,7 +6,7 @@ export const cardDetails = [
     imageLink: "socially.webp",
     gitLink: "https://github.com/anoop102910/Socially_MERN",
     websiteLink: "https://socially-102910.netlify.app/",
-    techStack: ["Next","Nest.js","Shadcn","SWR","Typescript"],
+    techStack: ["Next", "Nest.js", "Shadcn", "SWR", "Typescript"],
     videoLink: "https://youtu.be/wpq2_1K5Y6U",
   },
   {
@@ -20,39 +20,25 @@ export const cardDetails = [
   },
   {
     name: "Ideanest",
-    about: "Now upload blgos on ideanest with latest tech stack",
+    about: "Now upload blogs on ideanest with latest tech stack",
     imageLink: "ideanest.png",
     gitLink: "https://github.com/anoop102910/Ideanest",
     websiteLink: "https://ideanest-102910.vercel.app/",
     techStack: ["Next js", "Mongodb", "Mongoose", "Next Auth", "Server Actions"],
     videoLink: "https://youtu.be/MkwcBinWeVc",
   },
-  {
-    name: "AnimeHub",
-    about: "Discover anime joy on my Next.js site with infinite loading and server-side rendering",
-    imageLink: "animehub.webp",
-    gitLink: "https://github.com/anoop102910/AnimeHub",
-    websiteLink: "https://animehub-102910.vercel.app/",
-    techStack: ["Next js", "React Intersection", "Framer Motion"],
-  },
-  {
-    name: "Yumyard",
-    about:
-      "Witness the seamless fusion of creativity and functionality as Figma designs come to life in the realm of web development.",
-    imageLink: "yumyard-food.webp",
-    gitLink: "https://github.com/anoop102910/yumyard-food-website",
-    websiteLink: "https://yumyard-food.netlify.app/",
-    techStack: ["Tailwind", "React", "Shadcn", "Figma"],
-  },
-  {
-    name: "Sidcup Clone Website",
-    about:
-      "Visit my website clone of Sidcup, showcasing captivating scrolling animations and the best available web animations.",
-    imageLink: "sidcup.webp",
-    gitLink: "https://github.com/anoop102910/Sidcup-website-clone",
-    websiteLink: "https://responsive-sidcup-clone.netlify.app/",
-    techStack: ["Html", "Css", "GSAP"],
-  },
+];
+
+export const skills = [
+  { src: "next.svg", label: "Next js", level: "Advanced" },
+  { src: "nest.svg", label: "Nest js", level: "Advanced" },
+  { src: "postgres.svg", label: "Postgres", level: "Advanced" },
+  { src: "react.svg", label: "React", level: "Advanced" },
+  { src: "node.svg", label: "Node Js", level: "Advanced" },
+  { src: "mongodb.svg", label: "Mongo Db", level: "Intermediate" },
+  { src: "docker.svg", label: "Docker", level: "Intermediate" },
+  { src: "java.svg", label: "Java", level: "Intermediate" },
+  { src: "redux.svg", label: "Redux", level: "Intermediate" },
 ];
 
 export const educationData = [
@@ -74,4 +60,21 @@ export const educationData = [
     institution: "Radha Krishna Memorial Education Center",
     location: "Kanpur, Uttar Pradesh",
   },
+];
+
+export const socialLinks = [
+  {
+    href: "https://github.com/anoop102910?tab=repositories",
+    src: "github.png",
+    alt: "GitHub",
+    target: "1",
+  },
+  { href: "", src: "./instagram.png", alt: "Instagram", target: "2" },
+  {
+    href: "https://www.linkedin.com/in/anoop-singh-1a67ba252/",
+    src: "./linkedin.png",
+    alt: "LinkedIn",
+    target: "3",
+  },
+  { href: "https://wa.me/6388175878", src: "whatsapp.png", alt: "WhatsApp", target: "4" },
 ];

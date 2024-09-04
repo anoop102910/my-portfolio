@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
 import api from "./utils/api";
 import "@fontsource/suse";
@@ -7,9 +7,11 @@ import "@fontsource/spirax";
 import "@fontsource/roboto";
 import "@fontsource/playfair-display";
 import "@fontsource/poppins";
-import Main from "./pages/home/Main";
+const Main = lazy(() => import("./pages/home/Main"));
+const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
+import { Loader } from "lucide-react";
 
 function App() {
   useEffect(() => {
@@ -49,10 +51,12 @@ function App() {
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+        <Suspense fallback={<div className="flex justify-center items-center h-screen"><Loader className="animate-spin text-primary" /></div>}>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Suspense>
       </Router>
       <Toaster />
     </>

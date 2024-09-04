@@ -28,7 +28,7 @@ const Experience = () => {
                     initial="hidden"
                     className="mt-10 flex-1 border p-8 neo"
                 >
-                    <h2 className="text-4xl font-bold font-roboto text-green-600">Full Stack Developer</h2>
+                    <h2 className="text-4xl font-bold font-roboto text-gray-600">Full Stack Developer</h2>
                     <h3 className="text-2xl mt-6">Megamind IT Solutions</h3>
                     <p className="mt-4 text-gray-500">June 10, 2024 - August 10, 2024</p>
                     <ul className="list-disc list-inside mt-2">
